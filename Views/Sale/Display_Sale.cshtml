@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Project_acklogica.Models.sale>
+
+@{
+    ViewBag.Title = "Display_Sale";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Display_Sale</h2>
+
+<p>
+    @Html.ActionLink("Display_Sale", "Display_Sale", "Sale", new {@class="btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sale_prod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sale_qnty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sale_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sale_price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sale_prod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sale_qnty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sale_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sale_price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Delete", "Delete", new { Categoryid = item.id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
